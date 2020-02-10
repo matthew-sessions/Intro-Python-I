@@ -5,6 +5,8 @@
 # the sum. This is what you'd consider to be a regular, normal function.
 
 # YOUR CODE HERE
+def f1(one, two):
+    return(one + two)
 
 print(f1(1, 2))
 
@@ -13,6 +15,13 @@ print(f1(1, 2))
 # Note: Google for "python arbitrary arguments" and look for "*args"
 
 # YOUR CODE HERE
+def f2(num, *argv):
+    try:
+        arg_sum = sum(list(argv))
+        an = num + arg_sum
+    except:
+        an = sum(num)
+    return(an)
 
 print(f2(1))                    # Should print 1
 print(f2(1, 3))                 # Should print 4
@@ -28,7 +37,12 @@ print(f2(a))    # Should print 22
 # it returns that value plus 1. If two arguments, it returns the sum of the
 # arguments.
 # Note: Google "python default arguments" for a hint.
-
+def f3(one, two=None):
+    if two is None:
+        an = one + 1
+    else:
+        an = one + two
+    return(an)
 # YOUR CODE HERE
 
 print(f3(1, 2))  # Should print 3
@@ -44,6 +58,9 @@ print(f3(8))     # Should print 9
 # Note: Google "python keyword arguments".
 
 # YOUR CODE HERE
+def f4(**kwargs):
+    for key, val in kwargs.items():
+        print(f"Key: {key}, value {val}")
 
 # Should print
 # key: a, value: 12
@@ -62,4 +79,4 @@ d = {
 }
 
 # How do you have to modify the f4 call below to make this work?
-f4(d)
+f4(**d)
